@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+/* Theme Variables */
+@theme {
+  /* Typography */
+  --font-mono: "Space Mono", monospace;
+
+  --text-preset-1: 26px;
+  --text-preset-2: 22px;
+  --text-preset-3: 18px;
+  --text-preset-3-mobile: 13px;
+  --text-preset-4: 16px;
+  --text-preset-5: 16px;
+  --text-preset-6: 15px;
+  --text-preset-7: 13px;
+  --text-preset-8: 13px;
+
+  --leading-preset-1: 120%;
+  --leading-preset-2: 140%;
+  --leading-preset-3: 140%;
+  --leading-preset-3-mobile: 140%;
+  --leading-preset-4: 150%;
+  --leading-preset-5: 150%;
+  --leading-preset-6: 150%;
+  --leading-preset-7: 150%;
+  --leading-preset-8: 140%;
+
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+
+  --tracking-preset-8: 2.5px;
+
+  /* Colors – Neutral Palette */
+
+  --neutral-900: #141d2f;
+  --neutral-800: #1e2a47;
+  --neutral-700: #2b3442;
+  --neutral-500: #4b6a9b;
+  --neutral-300: #697c9a;
+  --neutral-200: #90a4d4;
+  --neutral-100: #f6f8ff;
+  --neutral-0: #ffffff;
+
+  /* Colors – Accent Palette */
+
+  --blue-300: #60abff;
+  --blue-500: #0079ff;
+  --red-500: #f74646;
+
+  /* Dynamic Theme Colors */
+
+  --color-primary-bg: var(--neutral-100);
+  --color-secondary-bg: var(--neutral-0);
+  --color-primary-text: var(--neutral-700);
+  --color-secondary-text: var(--neutral-500);
+  --color-tertiary-text: var(--blue-500);
+}
+
+/* Dark Mode Overrides */
+
+@layer base {
+  html[data-theme='dark'] {
+    --color-primary-bg: var(--neutral-900);
+    --color-secondary-bg: var(--neutral-800);
+    --color-primary-text: var(--neutral-0);
+    --color-secondary-text: var(--neutral-500);
+    --color-tertiary-text: var(--blue-300);
+  }
+}
+
+/* Base Resets & Global Styles */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0;
+    background-color: var(--color-primary-bg);
+    color: var(--color-primary-text);
+    min-height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  input {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-primary-text);
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    background-color: var(--blue-500);
+    color: var(--neutral-0);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+
+  button:hover {
+    filter: brightness(1.1);
+  }
+}
+
+/* typography presets */
+
+@layer utilities {
+  .text-preset-1 {
+    @apply font-bold text-preset-1 leading-preset-1;
+  }
+
+  .text-preset-2 {
+    @apply font-bold text-preset-2 leading-preset-2;
+  }
+
+  .text-preset-3 {
+    @apply font-normal text-preset-3 leading-preset-3;
+  }
+
+  .text-preset-3-mobile {
+    @apply font-normal text-preset-3-mobile leading-preset-3-mobile;
+  }
+
+  .text-preset-4 {
+    @apply font-normal text-preset-4 leading-preset-4;
+  }
+
+  .text-preset-5 {
+    @apply font-bold text-preset-5 leading-preset-5;
+  }
+
+  .text-preset-6 {
+    @apply font-normal text-preset-6 leading-preset-6;
+  }
+
+  .text-preset-7 {
+    @apply font-normal text-preset-7 leading-preset-7;
+  }
+
+  .text-preset-8 {
+    @apply font-bold text-preset-8 leading-preset-8 tracking-preset-8;
+  }
+}
+
